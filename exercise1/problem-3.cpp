@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 /*
 We assume that the zero element for
 bool is false

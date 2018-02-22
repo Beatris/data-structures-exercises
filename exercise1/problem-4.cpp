@@ -2,13 +2,14 @@
 
 using namespace std;
 
-void filterEvens(int* x, int n) {
+int* filterEvens(int* x, int n) {
 	int numberOfEvens = 0;
 
 	// We count how many evens number are there in the array
 	for(int i = 0 ; i < n ; ++i){
-		if(x[i] % 2 == 0)
+		if(x[i] % 2 == 0){
 			numberOfEvens++;
+		}
 	}
 
 	// Now create new array only for the even numbers
@@ -20,12 +21,22 @@ void filterEvens(int* x, int n) {
 			positionInNewArray++;
 		}
 	}
-	// We assume that x is also dynamic array!
-	delete[] x;
-	x = newArr;
+	return newArr;
 }
 
 int main(){
+	int *arr = new int[5];
+
+	for(int i = 0 ; i < 5 ; ++i)
+		arr[i] = i;
+
+	int *saver = arr;
+ 	arr = filterEvens(arr, 5);
+	delete[] saver;
+
+	for(int i = 0 ; i < 3 ; ++i)
+		cout << arr[i] << " ";
+	cout << endl;
 	
 	return 0;
 }

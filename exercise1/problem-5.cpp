@@ -2,16 +2,16 @@
 
 using namespace std;
 
-void filterEvens(int* x, int n, bool (p*)(int)) {
+int* filterEvens(int* x, int n, bool (*p)(int)) {
 	int newArrSize = 0;
 
-	// We count how many evens number are there in the array
+	// We count how many numbers of the array satisfy p
 	for(int i = 0 ; i < n ; ++i){
 		if(p(x[i]))
 			newArrSize++;
 	}
 
-	// Now create new array only for the even numbers
+	// Now create new array only for the numbers which satisfy p
 	int* newArr = new int[newArrSize];
 	int positionInNewArray = 0;
 	for(int i = 0 ; i < n ; ++i){
@@ -20,12 +20,30 @@ void filterEvens(int* x, int n, bool (p*)(int)) {
 			positionInNewArray++;
 		}
 	}
-	// We assume that x is also dynamic array!
-	delete[] x;
-	x = newArr;
+
+	return newArr;
+}
+
+bool isEven(int x){
+	return x % 2 == 0;
 }
 
 int main(){
 
+	int *arr = new int[5];
+
+	for(int i = 0 ; i < 5 ; ++i)
+		arr[i] = i;
+
+	int *saver = arr;
+ 	arr = filterEvens(arr, 5, isEven);
+	delete[] saver;
+
+	for(int i = 0 ; i < 3 ; ++i)
+		cout << arr[i] << " ";
+	cout << endl;
+
 	return 0;
 }
+
+
