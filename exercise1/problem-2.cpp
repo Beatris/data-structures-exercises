@@ -8,16 +8,18 @@ int main(){
 	cin >> arrSize;
 
 	//Allocate the dynamic array
-	int *pointerToDynArray = new int[arrSize];
+	int *arr = new int[arrSize];
 
 	for(int i = 0 ; i < arrSize ; ++i){
-		cin >> pointerToDynArray[i];
+		cin >> arr[i];
 	}
 
 	//Print the array in reversed order
 	for(int i = arrSize - 1 ; i >= 0 ; --i){
-		cout << pointerToDynArray[i];
+		cout << arr[i];
 	}
+	
+	delete[] arr;
 
 	return 0;
 }
