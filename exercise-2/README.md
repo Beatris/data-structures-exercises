@@ -28,15 +28,17 @@ int main() {
 
 using namespace std;
 
-void reverse_print(char* arr){
+void reverse_print(char* arr, int position = 0){
   // Code
 }
 
 int main() {
   char myword[] = { 'o', 'l', 'l', 'e', 'H', '\0' }; 
-  cout << reverse_print(myword) << endl;
+  reverse_print(myword);
+  cout << endl;
   char myword2[] = { 'a', 'l', 'u', 'l', 'a', '\0' }; 
-  cout << reverse_print(myword2) << endl;
+  reverse_print(myword2);
+  cout << endl;
   return 0;
 }
 ```
