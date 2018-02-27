@@ -1,45 +1,25 @@
 ### Задача 1 ###
-Да се имплементира функция ```fact``` 
-```
-#include <iostream>
-
-using namespace std;
-
-int fact(int n){
-  // Code
-}
-
-int main() {
-  cout << "5! = " << fact(5) << endl;
-  cout << "6! = " << fact(6) << endl;
-  return 0;
-}
-```
-Така че при изпълнение на програмата в конзолата да се изведе:
-```
-5! = 120
-6! = 720
-```
+Да се имплементира функция `factorial`, която връща **n!** по подаден аргумент от тип `int`.
 
 ### Задача 2 ###
-Да се имплементира функция ```reverse_print```  която принтира подаден непразен null-terminated низ в обратен ред
+Да се имплементира функция `reversePrint`  която принтира подаден непразен null-terminated низ в обратен ред:
 ```
 #include <iostream>
 
 using namespace std;
 
-void reverse_print(char* arr, int position = 0){
-  // Code
+void reversePrint(char* arr, int position = 0){
+    // Code
 }
 
 int main() {
-  char myword[] = { 'o', 'l', 'l', 'e', 'H', '\0' }; 
-  reverse_print(myword);
-  cout << endl;
-  char myword2[] = { 'a', 'l', 'u', 'l', 'a', '\0' }; 
-  reverse_print(myword2);
-  cout << endl;
-  return 0;
+    char myword[] = { 'o', 'l', 'l', 'e', 'H', '\0' }; 
+    reversePrint(myword);
+    cout << endl;
+    char myword2[] = { 'a', 'l', 'u', 'l', 'a', '\0' }; 
+    reversePrint(myword2);
+    cout << endl;
+    return 0;
 }
 ```
 Така че при изпълнение на програмата в конзолата да се изведе:

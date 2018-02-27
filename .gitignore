@@ -1,5 +1,6 @@
 #Project specific ignores:
 solutions/
+.vscode
 
 # C++ default ignores:
 # Prerequisites
