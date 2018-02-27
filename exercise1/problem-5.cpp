@@ -2,48 +2,53 @@
 
 using namespace std;
 
-int* filterEvens(int* x, int n, bool (*p)(int)) {
-	int newArrSize = 0;
+int* filter(int* x, int* n, bool (*p)(int)) {
+	int matchingNumbersCount = 0;
+	int size = *n;
 
-	// We count how many numbers of the array satisfy p
-	for(int i = 0 ; i < n ; ++i){
-		if(p(x[i]))
-			newArrSize++;
-	}
-
-	// Now create new array only for the numbers which satisfy p
-	int* newArr = new int[newArrSize];
-	int positionInNewArray = 0;
-	for(int i = 0 ; i < n ; ++i){
-		if(p(x[i])){
-			newArr[positionInNewArray] = x[i];
-			positionInNewArray++;
+	// Count the even numbers in the array
+	for(int i = 0 ; i < size; i++) {
+		if(p(x[i])) {
+			matchingNumbersCount++;
 		}
 	}
 
+	// Create new array only for the even numbers
+	int* newArr = new int[matchingNumbersCount];
+	int newArrCount = 0;
+	for(int i = 0 ; i < size; i++) {
+		if(p(x[i])) {
+			newArr[newArrCount] = x[i];
+			newArrCount++;
+		}
+	}
+	*n = newArrCount;
 	return newArr;
 }
 
-bool isEven(int x){
-	return x % 2 == 0;
+bool isOdd(int x){
+	return x % 2 != 0;
 }
 
 int main(){
+	// Enter the input array:
+	int size; cin >> size;
+	int *arr = new int[size];
 
-	int *arr = new int[5];
+	for(int i = 0 ; i < size; i++) {
+		cin >> arr[i];
+	}
 
-	for(int i = 0 ; i < 5 ; ++i)
-		arr[i] = i;
+	// Create new array with the filtered elements
+	// and delete the old one:
+	int *pointerToSize = &size;
+	int *newArr = filter(arr, pointerToSize, isOdd);
+	delete[] arr;
 
-	int *saver = arr;
- 	arr = filterEvens(arr, 5, isEven);
-	delete[] saver;
-
-	for(int i = 0 ; i < 3 ; ++i)
-		cout << arr[i] << " ";
+	for(int i = 0 ; i < *pointerToSize; i++) {
+		cout << newArr[i] << " ";
+	}
 	cout << endl;
-
+	delete[] newArr;
 	return 0;
 }
-
-

@@ -4,19 +4,19 @@ using namespace std;
 
 int main(){
 	//Read the size of the dynamic array
-	int arrSize;
-	cin >> arrSize;
+	int size;
+	cin >> size;
 
 	//Allocate the dynamic array
-	int *pointerToDynArray = new int[arrSize];
+	int *arr = new int[size];
 
-	for(int i = 0 ; i < arrSize ; ++i){
-		cin >> pointerToDynArray[i];
+	for(int i = 0 ; i < size; ++i) {
+		cin >> arr[i];
 	}
 
 	//Print the array in reversed order
-	for(int i = arrSize - 1 ; i >= 0 ; --i){
-		cout << pointerToDynArray[i] << " ";
+	for(int i = size - 1; i >= 0 ; --i) {
+		cout << arr[i] << " ";
 	}
 	cout << endl;
 
