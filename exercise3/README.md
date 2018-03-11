@@ -3,7 +3,7 @@
 Да се напише:
 * функция `distance`, която да връща разстоянието между 2 точки:
 ```
-int distance(point p1, point p2) {
+double distance(point p1, point p2) {
     ...
 }
 ```
